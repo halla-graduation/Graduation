@@ -1,0 +1,49 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor.SceneManagement;
+
+public class portal : MonoBehaviour
+{
+    public string A2;
+    public Vector3 Ch;
+    public Vector3 po1n1;
+    public Vector3 po1n2;
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Ch = GameObject.Find("Character").transform.position;
+        po1n1 = GameObject.Find("portal1n1").transform.position;
+        po1n2 = GameObject.Find("portal1n2").transform.position;
+
+        if (Ch.x - 1 < po1n1.x && Ch.x + 1 > po1n1.x)
+        {
+            if (Ch.y - 1 < po1n1.y && Ch.y + 1 > po1n1.y)
+            {
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    
+                    EditorSceneManager.LoadScene("A2");
+                }
+            }
+        }
+
+        if (Ch.x - 1 < po1n2.x && Ch.x + 1 > po1n2.x)
+        {
+            if(Ch.y - 1 < po1n2.y && Ch.y + 1 > po1n2.y)
+            {
+                if(Input.GetKeyDown(KeyCode.Z))
+                {
+                    EditorSceneManager.LoadScene("A2");
+                }
+            }
+        }
+        
+    }
+
+}
